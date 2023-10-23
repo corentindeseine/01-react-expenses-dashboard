@@ -36,10 +36,18 @@ const ExpenseForm = (props) => {
   const submitHandler = (e) => {
     e.preventDefault();
 
+    const parts = enteredDate.split('-'); // Diviser la chaîne en année, mois et jour
+
+    const year = parseInt(parts[0], 10); // Conversion de la chaîne en nombre
+    const month = parseInt(parts[1], 10) - 1; // Les mois dans JavaScript commencent à 0 (janvier = 0, février = 1, etc.)
+    const day = parseInt(parts[2], 10);
+
+    const date = new Date(year, month, day)
+
     const expenseData = {
       title: enteredTitle,
       amount: enteredAmount,
-      date: enteredDate,
+      date: date,
     }
 
     props.onSaveExpenseData(expenseData);
