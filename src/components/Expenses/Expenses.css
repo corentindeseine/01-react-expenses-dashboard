@@ -8,4 +8,6 @@
 
 .no-expenses {
   color: white;
+  margin: 20px auto;
+  width: fit-content;
 }
